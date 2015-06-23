@@ -1,0 +1,59 @@
+
+
+body
+{
+	background-color: #272822;
+	color: white;
+	font-family: verdana;
+	margin-top: 60px;
+}
+
+.centered_cell
+{
+	text-align: center;
+	margin: auto;
+	width: 300px;
+	background-color: #272822;
+	padding: 20px 30px;
+	border-radius: 6px;
+}
+
+.centered_cell tr td
+{
+	text-align: center;
+	padding: 7px 5px;
+}
+
+.centered_cell .l
+{
+	text-align: right;
+}
+
+.centered_cell .text_input
+{
+	border: 3px solid #a4c67b;
+	padding: 3px 4px;
+	font-size: 16px;
+}
+
+.centered_cell .submit_button
+{
+	padding: 9px 16px;
+	background-color: #5a7931;
+	color: white;
+	border: 3px solid #375b20;
+	border-radius: 4px;
+
+	font-family: verdana;
+	font-weight: bold;
+	box-shadow: 0 0 12px black;
+	text-shadow: 0 2px 1px black;
+
+	cursor: pointer;
+	font-size: 14px;
+}
+
+.centered_cell .submit_button:hover
+{
+	border-color: #a4c67b;
+}
