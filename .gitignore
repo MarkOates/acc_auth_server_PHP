@@ -4,4 +4,9 @@
 *.swp
 *.swp
 
+*.exe
+*.o
+*.out
+*.obj
+
 
