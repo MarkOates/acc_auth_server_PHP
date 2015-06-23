@@ -40,7 +40,7 @@ $requested_by_ip = mysql_escape_string($_SERVER['REMOTE_ADDR']);
 
 
 // add a staging record to the database
-$query = "INSERT INTO `acc_login_auth`.`auth_requests` (`id`, `datetime_created`, `auth_key`, `requested_by_ip`, `requested_by_user_agent`, `notify_url`, `datetime_validated`) VALUES (NULL, CURRENT_TIMESTAMP, '$auth_key', '$requested_by_ip', '$requested_by_user_agent', '$notify_url', '0');";
+$query = "INSERT INTO `auth_requests` (`id`, `datetime_created`, `auth_key`, `requested_by_ip`, `requested_by_user_agent`, `notify_url`, `datetime_validated`) VALUES (NULL, CURRENT_TIMESTAMP, '$auth_key', '$requested_by_ip', '$requested_by_user_agent', '$notify_url', '0');";
 mysql_query($query) or die ("there was an error staging the request. " . mysql_error());
 
 
