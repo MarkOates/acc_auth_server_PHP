@@ -43,7 +43,7 @@ void launch_browser_to_login(RequestData *request_data)
 	std::stringstream command;
 	command << "open " << validate_auth_url;
 	system(command.str().c_str()); //< TODO: is this correct?
-#elif // assume a Linux environment
+#else // assume a Linux environment
 	std::stringstream command;
 	command << "xdg-open " << validate_auth_url;
 	system(command.str().c_str()); //< TODO: is this correct?
