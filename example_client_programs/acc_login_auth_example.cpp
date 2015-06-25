@@ -78,12 +78,12 @@ size_t CURL_buffer_write_callback(char *ptr, size_t size, size_t nmemb, void *us
 
 int send_stage_auth_request_to_authority(std::string auth_domain_name)
 {
-	RequestData *request_data = new RequestData;
-	request_data->auth_key = generate_auth_key();
-	request_data->auth_domain_name = auth_domain_name;
-	request_data->request_remotely_initialized = false;
+	RequestData request_data;
+	request_data.auth_key = generate_auth_key();
+	request_data.auth_domain_name = auth_domain_name;
+	request_data.request_remotely_initialized = false;
 
-	std::string auth_url = request_data->auth_domain_name + "/stage_auth_request.php?auth_key=" + request_data->auth_key;
+	std::string auth_url = request_data.auth_domain_name + "/stage_auth_request.php?auth_key=" + request_data.auth_key;
 
 	std::cout << "sending request to " << auth_url << std::endl;
 
@@ -93,7 +93,7 @@ int send_stage_auth_request_to_authority(std::string auth_domain_name)
 	{
 		CURLcode res;
 		curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, CURL_buffer_write_callback);
-		curl_easy_setopt(curl, CURLOPT_WRITEDATA, request_data);
+		curl_easy_setopt(curl, CURLOPT_WRITEDATA, &request_data);
 		curl_easy_setopt(curl, CURLOPT_URL, auth_url.c_str());
 		res = curl_easy_perform(curl);
 			// curl_easy_perform is blocking.  If this implementation were to be used in an a game,
@@ -104,7 +104,7 @@ int send_stage_auth_request_to_authority(std::string auth_domain_name)
 		if (res == CURLE_OK)
 		{
 			std::cout << "curl request successfully completed." << std::endl;
-			if (!request_data->request_remotely_initialized) std::cout << "ERROR: The authorization server did not respond as expected." << std::endl;
+			if (!request_data.request_remotely_initialized) std::cout << "ERROR: The authorization server did not respond as expected." << std::endl;
 		}
 		else
 		{
