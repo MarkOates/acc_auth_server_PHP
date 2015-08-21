@@ -99,7 +99,7 @@ int send_stage_auth_request_to_authority(std::string auth_domain_name)
 			// curl_easy_perform is blocking.  If this implementation were to be used in an a game,
 			// then this send_stage_auth_request_to_authority() function should be executed as a thread.
 			// that way the game could provide status feedback and/or play a 'waiting' animation.
-			// Any status info be extracted during the CURL_buffer_write_callback and accessible
+			// Any status info could be extracted during the CURL_buffer_write_callback and accessible
 			// through a RequestData object (and should probably be sealed in a mutex)
 		if (res == CURLE_OK)
 		{
